@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Inicio</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body style="background-color: rgb(255,193,7);">
+    {% load static %} <!-- CARGA ETIQUETA STATIC PARA QUE CARGUE LA FOTO DE MI CARPETA STATIC-->
+    <div class="container text-center mt-5" >
+        <h1 style="font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; color: rgb(0, 0, 0);"  >SIMULADOR DE PEDIDOS </h1>
+        <img src="{% static 'Logo_inicio.png' %}" alt="Tu Imagen" class="img-fluid mt-3" style="max-width: 80%; height: auto;">
+        <div class="mt-4">
+            <a href="{% url 'lista_simulaciones' %}" class="btn btn-danger mr-3">Ir a la Lista de Simulaciones</a>
+            <a href="{% url 'crear_simulacion_form' %}" class="btn btn-danger">Crear una Simulación</a>
+        </div>
+    </div>
+</body>
+</html>

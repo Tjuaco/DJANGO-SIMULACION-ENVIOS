@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Simulación</title>
+    <!--LIBRERIA BOOTSTRAP-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+    <header>
+        <h3 class="bg-warning">Formulario de Simulación</h3>
+        <hr>
+    </header>
+    <main class="container">
+        <!-- FORMULARIO -->
+        <form method="post" action="{% url 'enviar_simulacion_form' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="nombre_empleado">Nombre del empleado</label>
+                <input type="text" class="form-control" id="nombre_empleado" name="nombre_empleado"required> <!-- VALIDACION NO SE PUEDE DEJAR EL CAMPO VACIO -->
+            </div>
+
+            <div class="form-group">
+                <label for="cantidad_unidades">Unidades</label>
+                <input type="number" class="form-control" id="cantidad_unidades" name="cantidad_unidades" required min="1"><!-- VALIDACION NUMERO MAYOR QUE 0 -->
+            </div>
+        
+            <div class="form-group">
+                <label for="costo_unitario">Costo Unitario (USD)</label>
+                <input type="text" class="form-control" id="costo_unitario" name="costo_unitario" required min="0.01" step="0.01"><!-- VALIDACION NUMERO MAYOR QUE 0,01 -->
+            </div>
+        
+            <div class="form-group">
+                <label for="nombre_articulo">Nombre del Ariculo</label>
+                <input type="text" class="form-control" id="nombre_articulo" name="nombre_articulo" required"><!-- VALIDACION NO SE PUEDE DEJAR EL CAMPO VACIO -->
+            </div>
+        
+            <div class="form-group">
+                <label for="codigo_articulo">Codigo del Producto</label>
+                <input type="number" class="form-control" id="codigo_articulo" name="codigo_articulo" required min="1"><!-- VALIDACION NUMERO MAYOR QUE 0 -->
+            </div>
+        
+            <div class="form-group">
+                <label for="nombre_proveedor">Nombre del Proveedor</label>
+                <input type="text" class="form-control" id="nombre_proveedor" name="nombre_proveedor" required><!-- VALIDACION NO SE PUEDE DEJAR EL CAMPO VACIO -->
+            </div>
+            <div class="form-group">
+                <label for="costo_envio">Costo de envio (USD)</label>
+                <input type="text" class="form-control" id="costo_envio" name="costo_envio" required min="0" step="0.01"><!-- VALIDACION NUMERO MAYOR O IGUAL QUE 0 -->
+            </div>
+            
+            <button type="submit" class="btn btn-danger">Crear simulacion</button>
+            <a href="{% url 'lista_simulaciones' %}" class="btn btn-warning">Ir a la lista de simulaciones</a>
+        </form>
+        
+    </main>
+</body>
+</html>

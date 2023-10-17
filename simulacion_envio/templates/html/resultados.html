@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de la Simulación</title>
+    <!-- BOOSTRAP -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    {% load static %}<!--CARGA ETIQUETA STATIC-->
+    <header>
+        <div class="d-flex align-items-center bg-warning p-2">
+            <img src="{% static 'logo_camion.png' %}" alt="Logo camion" style="max-width: 70px; height: auto;">
+            <h3 class="text-danger">Resultados de la Simulación</h3>
+        </div>
+        <hr>
+    </header>
+    <main class="container mt-4">
+        <div class="resultados">
+            <h3>Resultados</h3>
+            <ul class="list-group">
+                <li class="list-group-item">Valor Total del Pedido: {{ simulacion.total_pedido }} CLP</li>
+                <li class="list-group-item">Costo de Envío en CLP: {{ simulacion.costo_envio }} CLP</li>
+                <li class="list-group-item">Tasa de Aduana (6%): {{ simulacion.tasa_aduana }} CLP</li>
+                <li class="list-group-item">IVA (19%): {{ simulacion.iva }} CLP</li>
+                <li class="list-group-item">Impuesto de Aduana en CLP: {{ simulacion.impuesto_aduana }} CLP</li>
+                <li class="list-group-item">Costo total en CLP: {{ simulacion.costo_total }} CLP</li>
+                <li class="list-group-item">Costo total en USD: {{ simulacion.costo_total_usd }} USD</li>
+            </ul>
+        </div>
+        <a href="{% url 'lista_simulaciones' %}" class="btn btn-warning mt-3">Volver a la lista de simulaciones</a>
+    </main>
+</body>
+</html>
